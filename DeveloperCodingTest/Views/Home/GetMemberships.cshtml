@@ -1,0 +1,47 @@
+﻿@model IEnumerable<DeveloperCodingTest.ViewModel.MembershipVM>
+
+@{
+    ViewData["Title"] = "GetMemberships";
+}
+
+<h1>Memberships @ViewData["Name"]</h1>
+
+<p>
+    <a asp-action="Index">back to People</a>
+</p>
+
+<table class="table table-striped border">
+    <thead>
+        <tr class="table-secondary">
+            <th>
+                @Html.DisplayNameFor(model => model.Number)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AccountBalance)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MembershipType)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Number)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AccountBalance)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MembershipType)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "", new { /* id=item.PrimaryKey */ }, new { @class = "btn btn-success btn-sm" }) |
+                @Html.ActionLink("Delete", "", new { /* id=item.PrimaryKey */ }, new { @class = "btn btn-danger btn-sm" })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
